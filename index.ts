@@ -13,7 +13,7 @@ const http_port = 3000
 const mqtt_port = 1883
 
 const app = express()
-const mqtt = Server()
+const mqtt = Server({})
 const broker = createServer(mqtt.handle)
 
 app.engine('handlebars', engine());
@@ -62,7 +62,7 @@ mqtt.on('publish', async (packet, client) => {
             const message = await axios.post('http:/internal/didcomm/encrypted-messages/verify', {
                 message: JSON.parse(container)
             }, {
-                socketPath: '/Users/shotaro/projects/unid/unid-agent.sock',
+                socketPath: 'unid-agent.sock',
                 headers: {
                     'content-type': 'application/json'
                 }
