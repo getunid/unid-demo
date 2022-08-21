@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Record" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "container" TEXT NOT NULL,
+    "message" TEXT NOT NULL
+);

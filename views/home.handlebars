@@ -1,0 +1,38 @@
+<div class="mx-10 my-10">
+    <h1 class="text-2xl font-bold">
+        UNiD EDGE Demo
+    </h1>
+    <div>
+        {{#each records}}
+            <div class="shadow-md rounded-md mt-10 py-8 px-8 space-y-5">
+                <div class="space-y-1">
+                    <span class="font-bold block text-sm">
+                        datetime
+                    </span>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{datetime this.createdAt }}</pre>
+                </div>
+
+                <div class="space-y-1">
+                    <span class="font-bold block text-sm">
+                        data
+                    </span>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{json this.message.credentialSubject.container}}</pre>
+                </div>
+
+                <div class="space-y-1">
+                    <span class="font-bold block text-sm">
+                        verifiable credentials
+                    </span>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{json this.message}}</pre>
+                </div>
+
+                <div class="space-y-1">
+                    <span class="font-bold block text-sm">
+                        didcomm (enc)
+                    </span>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{json this.container}}</pre>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
