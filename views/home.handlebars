@@ -4,33 +4,33 @@
     </h1>
     <div>
         {{#each records}}
-            <div class="shadow-md rounded-md mt-10 py-8 px-8 space-y-5">
+            <div class="shadow-md rounded-md mt-10 py-8 px-8 space-y-5 bg-white">
                 <div class="space-y-1">
                     <span class="font-bold block text-sm">
-                        datetime
+                        DateTime
                     </span>
-                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{datetime this.createdAt }}</pre>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded shadow-inner">{{datetime this.createdAt }}</pre>
                 </div>
 
                 <div class="space-y-1">
                     <span class="font-bold block text-sm">
-                        data
+                        Data
                     </span>
-                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{json this.message.credentialSubject.container}}</pre>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded shadow-inner">{{json this.message.credentialSubject.container}}</pre>
                 </div>
 
                 <div class="space-y-1">
                     <span class="font-bold block text-sm">
-                        verifiable credentials
+                        Verifiable Credentials
                     </span>
-                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{json this.message}}</pre>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded shadow-inner">{{json this.message}}</pre>
                 </div>
 
                 <div class="space-y-1">
                     <span class="font-bold block text-sm">
-                        didcomm (enc)
+                        DIDComm (enc)
                     </span>
-                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded">{{json this.container}}</pre>
+                    <pre class="text-xs overflow-scroll border py-3 px-4 rounded shadow-inner">{{json this.container}}</pre>
                 </div>
             </div>
         {{/each}}

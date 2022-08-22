@@ -40,12 +40,12 @@ app.get('/', async (req, res) => {
     })
 
     return res.render('home', {
-        records: records.map((x) => {
+        records: records.map((v) => {
             return {
-                id: x.id,
-                createdAt: x.createdAt,
-                container: JSON.parse(x.container),
-                message: JSON.parse(x.message),
+                id: v.id,
+                createdAt: v.createdAt,
+                container: JSON.parse(v.container),
+                message: JSON.parse(v.message),
             }
         }),
     })
@@ -57,7 +57,9 @@ app.listen(http_port, () => {
 
 mqtt.on('publish', async (packet, client) => {
     try {
-        if (packet.topic === 'unid:demo') {
+        console.log('packet:', JSON.stringify(packet))
+
+        if (packet.topic === 'unid/demo') {
             const container = Buffer.from(packet.payload).toString('utf-8')
             const message = await axios.post('http:/internal/didcomm/encrypted-messages/verify', {
                 message: JSON.parse(container)
