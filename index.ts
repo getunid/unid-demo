@@ -32,11 +32,8 @@ app.get('/', async (req, res) => {
     const now = moment();
 
     const records = await prisma.record.findMany({
-        take: 25,
+        take: 100,
         orderBy: { id: 'desc' },
-        where: {
-            createdAt: { gt: now.subtract(1, 'day').toDate() }
-        }
     })
 
     return res.render('home', {
